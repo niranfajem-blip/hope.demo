@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - H.O.P.E.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Page Header - Luxury */
+        .page-header {
+            background: transparent;
+            padding: 12rem 0 8rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.4;
+            z-index: -1;
+            filter: grayscale(20%) contrast(110%);
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--brand-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            color: var(--muted-foreground);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-list {
+            padding: 4rem 0;
+            background-color: var(--muted);
+            /* Match About Us section layout */
+            border-top: 1px solid var(--border);
+        }
+
+        .service-detail-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 3rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.2s ease;
+        }
+
+        .service-detail-card {
+            /* Inherit luxury float */
+        }
+
+        .service-detail-card:hover {
+            /* Handled by luxury-card class */
+            border-color: rgba(217, 119, 6, 0.5);
+            /* Amber accent */
+        }
+
+        @media (min-width: 768px) {
+            .service-detail-card {
+                flex-direction: row;
+                align-items: stretch;
+            }
+
+            .service-content {
+                flex: 1;
+                padding: 2.5rem;
+            }
+
+            .service-image {
+                flex: 0 0 320px;
+                background-color: var(--muted);
+                background-size: cover;
+                background-position: center;
+                min-height: 100%;
+            }
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-content h2 {
+            color: var(--foreground);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .service-content p {
+            color: var(--muted-foreground);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-items {
+            margin-top: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .service-item {
+            position: relative;
+            padding-left: 1.25rem;
+            color: var(--foreground);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .service-item::before {
+            content: "•";
+            color: var(--primary);
+            /* Blue bullet */
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .cta-section {
+            background-color: var(--background);
+            /* Alternating bg */
+            color: var(--foreground);
+            text-align: center;
+            padding: 6rem 0;
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo-link"><img src="logo.jpg" alt="H.O.P.E. Logo" class="logo-img"></a>
+            <button class="mobile-menu-btn">☰</button>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>What We Offer</h1>
+            <p>Comprehensive Solutions for Government & Private Sectors</p>
+        </div>
+    </section>
+
+    <!-- Services List -->
+    <section class="services-list">
+        <div class="container">
+
+            <!-- A. Supplies and Procurement -->
+            <div class="service-detail-card luxury-card"
+                onclick="window.location.href='contact.html?service=Supplies+and+Procurement'" style="cursor: pointer;">
+                <div class="service-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1586769852044-692d6e3703f0?auto=format&fit=crop&q=80');">
+                </div>
+                <div class="service-content">
+                    <h2>Supplies and Procurement</h2>
+                    <p>We source and supply high-quality materials and equipment to keep your operations running
+                        smoothly.</p>
+                    <div class="service-items">
+                        <div class="service-item">Office & industrial equipment</div>
+                        <div class="service-item">IT & communication devices</div>
+                        <div class="service-item">Construction & building materials</div>
+                        <div class="service-item">Medical & safety equipment</div>
+                        <div class="service-item">Furniture</div>
+                        <div class="service-item">Stationery</div>
+                        <div class="service-item">Agricultural products</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- B. Project Execution & Contracting -->
+            <div class="service-detail-card luxury-card"
+                onclick="window.location.href='contact.html?service=Project+Execution'" style="cursor: pointer;">
+                <div class="service-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80');">
+                </div>
+                <div class="service-content">
+                    <h2>Project Execution & Contracting</h2>
+                    <p>Expert management and execution of complex projects with a focus on safety and quality.</p>
+                    <div class="service-items">
+                        <div class="service-item">Civil, electrical, mechanical works</div>
+                        <div class="service-item">Facility management & maintenance</div>
+                        <div class="service-item">Event coordination</div>
+                        <div class="service-item">Logistics</div>
+                        <div class="service-item">Waste & environmental management</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- C. Consulting & Advisory Services -->
+            <div class="service-detail-card luxury-card"
+                onclick="window.location.href='contact.html?service=Consulting+and+Advisory'" style="cursor: pointer;">
+                <div class="service-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80');">
+                </div>
+                <div class="service-content">
+                    <h2>Consulting & Advisory Services</h2>
+                    <p>Strategic insights to drive growth and efficiency in your organization.</p>
+                    <div class="service-items">
+                        <div class="service-item">Business strategy</div>
+                        <div class="service-item">Market research & feasibility studies</div>
+                        <div class="service-item">Project management support</div>
+                        <div class="service-item">HR & training solutions</div>
+                        <div class="service-item">Procurement compliance</div>
+                        <div class="service-item"><strong>Notary Public Services</strong></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- D. Public-Private Partnerships -->
+            <div class="service-detail-card luxury-card"
+                onclick="window.location.href='contact.html?service=Public-Private+Partnerships'"
+                style="cursor: pointer;">
+                <div class="service-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?auto=format&fit=crop&q=80');">
+                </div>
+                <div class="service-content">
+                    <h2>Public-Private Partnerships</h2>
+                    <p>Building the future together through collaborative development initiatives.</p>
+                    <div class="service-items">
+                        <div class="service-item">Infrastructure development</div>
+                        <div class="service-item">Community & social impact programs</div>
+                        <div class="service-item">ESG compliance advisory</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- E. Non-Profit through Donations -->
+            <div class="service-detail-card luxury-card"
+                onclick="window.location.href='contact.html?service=Non-Profit+Donations'" style="cursor: pointer;">
+                <div class="service-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80');">
+                </div>
+                <div class="service-content">
+                    <h2>Non-Profit through Donations</h2>
+                    <p>Empowering communities and causes through structured donation programs.</p>
+                    <div class="service-items">
+                        <div class="service-item">Charitable program management</div>
+                        <div class="service-item">Donation distribution logistics</div>
+                        <div class="service-item">Community outreach</div>
+                        <div class="service-item">Fundraising support</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to start your project?</h2>
+            <p style="margin-bottom: var(--spacing-lg);">Contact us today to discuss your requirements.</p>
+            <a href="contact.html" class="btn btn-primary">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>H.O.P.E.</h3>
+                    <p>Delivering reliable, innovative, and transparent solutions across all projects.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul style="opacity: 0.8; line-height: 2;">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <p>Phone: +1 (404) 397-9000 / +1 (404) 437-8826</p>
+                    <p>Email: <a href="mailto:houseofparadise.mail@gmail.com"
+                            style="text-decoration: underline;">houseofparadise.mail@gmail.com</a></p>
+                    <p>Address: 40 Peachtree Valley Road NE Apt 2130, Atlanta, GA 30309</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 House of Paradise Enterprises. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

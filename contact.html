@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - H.O.P.E.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Consistent Page Header */
+        /* Consistent Page Header */
+        /* Consistent Page Header */
+        /* Consistent Page Header - Luxury */
+        .page-header {
+            background: transparent;
+            padding: 12rem 0 8rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.4;
+            z-index: -1;
+            filter: grayscale(20%) contrast(110%);
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--brand-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            color: var(--muted-foreground);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem 8rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        @media (min-width: 900px) {
+            .contact-container {
+                grid-template-columns: 3fr 2fr;
+                gap: 4rem;
+            }
+        }
+
+        /* Clean Panel Styles */
+        .contact-form-panel {
+            /* Will use luxury-card class */
+        }
+
+        .contact-info-panel {
+            background: rgba(30, 41, 59, 0.4);
+            /* Slightly different shade for contrast */
+            backdrop-filter: blur(12px);
+            border-radius: var(--radius);
+            padding: 3rem;
+        }
+
+        .contact-info-panel {
+            background: var(--muted);
+            /* Light gray for info panel to distinguish */
+            border: none;
+        }
+
+        /* Typography & Icons */
+        .contact-info-panel h3,
+        .contact-form-panel h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--foreground);
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: var(--background);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+        }
+
+        .contact-item:hover {
+            box-shadow: var(--shadow-sm);
+            border-color: var(--primary);
+        }
+
+        .contact-icon {
+            font-size: 1.25rem;
+            border-radius: 8px;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        /* Map Styles */
+        .map-embed {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            margin-top: 2rem;
+        }
+
+        /* Form Controls - ShadCN Style */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--foreground);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            border: 1px solid var(--input);
+            background: var(--background);
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            border-radius: var(--radius);
+            padding: 0.75rem 1rem;
+            color: var(--foreground);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.2);
+            outline: none;
+        }
+
+        /* Overlays */
+        .loading-overlay,
+        .success-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(4px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .loading-overlay.active,
+        .success-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Spinner & Checkmark */
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--muted);
+            border-top: 3px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .checkmark-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #22c55e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            animation: pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .checkmark {
+            color: white;
+            font-size: 3rem;
+        }
+
+        @keyframes pop {
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo-link"><img src="logo.jpg" alt="H.O.P.E. Logo" class="logo-img"></a>
+            <button class="mobile-menu-btn">☰</button>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in Touch for a Consultation</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <div class="contact-container">
+
+        <!-- Contact Form -->
+        <div class="contact-form-panel luxury-card">
+            <!-- Loading Overlay -->
+            <div class="loading-overlay" id="loadingOverlay">
+                <div class="spinner"></div>
+                <p style="margin-top: 1rem; font-weight: 500;">Sending your message...</p>
+            </div>
+
+            <!-- Success Overlay -->
+            <div class="success-overlay" id="successOverlay">
+                <div class="checkmark-circle">
+                    <span class="checkmark">✓</span>
+                </div>
+                <h3 style="color: #2E7D32; margin-bottom: 0.5rem;">Message Sent Successfully!</h3>
+                <p style="text-align: center; margin-bottom: 1rem;">
+                    Thank you for contacting House of Paradise Enterprises.<br>
+                    We have sent a copy to <strong>houseofparadise.mail@gmail.com</strong>.
+                </p>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 1.5rem;">
+                    We usually respond within 24 hours.
+                </p>
+                <button class="btn btn-primary" id="resetBtn">Send Another Message</button>
+            </div>
+
+            <h3 style="margin-bottom: 2rem;">Send us a Message</h3>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required placeholder="Your Name">
+                </div>
+                <div class="form-group grid" style="grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required placeholder="email@example.com">
+                    </div>
+                    <div>
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" placeholder="+1 (555) 000-0000">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company/Organization</label>
+                    <input type="text" id="company" placeholder="Your Company">
+                </div>
+                <div class="form-group">
+                    <label for="inquiry-type">Type of Inquiry</label>
+                    <select id="inquiry-type">
+                        <option value="General Inquiry">General Inquiry</option>
+                        <option value="Request a Quote">Request a Quote</option>
+                        <option value="Partnership Opportunity">Partnership Opportunity</option>
+                        <option value="Notary Public Services">Notary Public Services</option>
+                        <option value="Careers">Careers</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" required placeholder="How can we help you?"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Inquiry</button>
+            </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info-panel">
+            <h3>Contact Information</h3>
+            <p style="margin-bottom: 2rem;">Reach out to us directly or visit our office.</p>
+
+            <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div>
+                    <strong>Office Address</strong><br>
+                    40 Peachtree Valley Road NE Apt 2130<br>
+                    Atlanta, GA 30309
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">📞</div>
+                <div>
+                    <strong>Phone</strong><br>
+                    +1 (404) 397-9000 / +1 (404) 437-8826
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">✉️</div>
+                <div>
+                    <strong>Email</strong><br>
+                    <a href="mailto:houseofparadise.mail@gmail.com">houseofparadise.mail@gmail.com</a>
+                </div>
+            </div>
+
+            <div class="map-embed">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3315.658607312132!2d-84.39401702434407!3d33.80517897325608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5056711c1e089%3A0x67c0c1630c79f977!2s40%20Peachtree%20Valley%20Rd%20NE%2C%20Atlanta%2C%20GA%2030309!5e0!3m2!1sen!2sus!4v1715200000000!5m2!1sen!2sus"
+                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>H.O.P.E.</h3>
+                    <p>Delivering reliable, innovative, and transparent solutions across all projects.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul style="opacity: 0.8; line-height: 2;">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <p>Phone: +1 (404) 397-9000 / +1 (404) 437-8826</p>
+                    <p>Email: <a href="mailto:houseofparadise.mail@gmail.com"
+                            style="text-decoration: underline;">houseofparadise.mail@gmail.com</a></p>
+                    <p>Address: 40 Peachtree Valley Road NE Apt 2130, Atlanta, GA 30309</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 House of Paradise Enterprises. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - H.O.P.E.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Page Header - Consistent with Home */
+        /* Page Header - Consistent with Home */
+        /* Page Header - Consistent with Home */
+        /* Page Header - Luxury */
+        .page-header {
+            background: transparent;
+            padding: 12rem 0 8rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.4;
+            z-index: -1;
+            filter: grayscale(20%) contrast(110%);
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--brand-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            color: var(--muted-foreground);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .story-section {
+            padding: 4rem 0;
+        }
+
+        .story-text {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--foreground);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        .vmv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .vmv-card {
+            background: var(--card);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+
+        .vmv-card h3 {
+            color: var(--foreground);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .vmv-card p,
+        .vmv-card li {
+            color: var(--muted-foreground);
+        }
+
+        .founders-section {
+            background-color: var(--muted);
+            /* Light gray background */
+            padding: 6rem 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .founder-card {
+            background: var(--card);
+            padding: 2.5rem;
+            text-align: center;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-small);
+            border: 1px solid var(--border);
+            transition: transform 0.2s ease;
+        }
+
+        .founder-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .vmv-card,
+        .founder-card {
+            /* Handled by luxury-card utility mostly, but ensure overrides are minimal */
+            text-align: left;
+            padding: 2.5rem;
+        }
+
+        .founder-img-wrapper {
+            /* ... existing wrapper code is fine, but color might need tweak if it used light variables .. */
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background-color: var(--muted);
+            margin: 0 auto 1.5rem;
+            overflow: hidden;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            /* Subtle border */
+            box-shadow: 0 0 0 1px var(--border);
+        }
+
+        .founder-card h3 {
+            margin-bottom: 0.25rem;
+            color: var(--foreground);
+        }
+
+        .founder-card p {
+            color: var(--primary);
+            /* Blue text */
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo-link"><img src="logo.jpg" alt="H.O.P.E. Logo" class="logo-img"></a>
+            <button class="mobile-menu-btn">☰</button>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>About Us</h1>
+            <p>Who We Are & What We Stand For</p>
+        </div>
+    </section>
+
+    <!-- Company Story -->
+    <section class="story-section">
+        <div class="container">
+            <div class="vmv-grid">
+                <div style="grid-column: 1 / -1;">
+                    <p class="story-text">
+                        H.O.P.E. was founded by Norna Augustave and Gifty Myers to provide comprehensive contracting and
+                        consulting services. With a focus on efficiency, quality, and compliance, we serve government
+                        and private sector clients, delivering solutions that create measurable impact.
+                    </p>
+                </div>
+            </div>
+
+            <div class="vmv-grid">
+                <div class="vmv-card luxury-card">
+                    <h3>Vision</h3>
+                    <p>To be recognized as a leading multi-sector contracting and consulting firm.</p>
+                </div>
+                <div class="vmv-card luxury-card">
+                    <h3>Mission</h3>
+                    <p>To deliver reliable, innovative, and transparent solutions across all projects.</p>
+                </div>
+                <div class="vmv-card luxury-card">
+                    <h3>Core Values</h3>
+                    <ul style="list-style-type: none; padding: 0; display: grid; gap: 0.5rem;">
+                        <li>• Integrity</li>
+                        <li>• Accountability</li>
+                        <li>• Excellence</li>
+                        <li>• Innovation</li>
+                        <li>• Partnership</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founders Section -->
+    <section class="founders-section">
+        <div class="container">
+            <h2 class="text-center">Our Leadership</h2>
+            <div class="founders-grid">
+                <div class="founder-card luxury-card" style="text-align: center;">
+                    <!-- Placeholder Image for Norna -->
+                    <div class="founder-img-wrapper">
+                        <img src="norna.jpg" alt="Norna Augustave" style="width:100%; height:100%; object-fit:cover;"
+                            onerror="this.style.display='none'; this.previousElementSibling.style.display='block';">
+                        <span style="display:none; color: #666; font-size: 0.8rem;">Photo</span>
+                    </div>
+                    <h3>Norna Augustave</h3>
+                    <p>Managing Director</p>
+                </div>
+                <div class="founder-card luxury-card" style="text-align: center;">
+                    <!-- Placeholder Image for Gifty -->
+                    <div class="founder-img-wrapper">
+                        <img src="gifty.jpg" alt="Gifty Myers" style="width:100%; height:100%; object-fit:cover;"
+                            onerror="this.style.display='none'; this.previousElementSibling.style.display='block';">
+                        <span style="display:none; color: #666; font-size: 0.8rem;">Photo</span>
+                    </div>
+                    <h3>Gifty Myers</h3>
+                    <p>Co Managing Director</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>H.O.P.E.</h3>
+                    <p>Delivering reliable, innovative, and transparent solutions across all projects.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul style="opacity: 0.8; line-height: 2;">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <p>Phone: +1 (404) 397-9000 / +1 (404) 437-8826</p>
+                    <p>Email: <a href="mailto:houseofparadise.mail@gmail.com"
+                            style="text-decoration: underline;">houseofparadise.mail@gmail.com</a></p>
+                    <p>Address: 40 Peachtree Valley Road NE Apt 2130, Atlanta, GA 30309</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 House of Paradise Enterprises. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
