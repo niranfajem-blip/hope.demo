@@ -62,16 +62,23 @@
     }
 
     .hero h1 {
-      font-size: 3.5rem;
-      /* Large, impactful heading */
+      font-size: 4rem;
+      /* Larger */
       line-height: 1.1;
-      font-weight: 800;
+      font-weight: 900;
+      /* Bolder */
       margin-bottom: 1.5rem;
-      background: var(--brand-gradient);
+      background: linear-gradient(to right, #d97706, #fcd34d, #d97706, #b45309);
+      /* Shining Gradient */
+      background-size: 200% auto;
+      animation: shine 3s linear infinite;
+      /* Shine Animation */
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
       letter-spacing: -0.02em;
+      text-shadow: 0 0 30px rgba(217, 119, 6, 0.3);
+      /* Glow */
     }
 
     .hero p {
