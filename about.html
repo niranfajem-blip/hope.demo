@@ -102,14 +102,13 @@
 
         .founders-section {
             background-color: var(--muted);
-            /* Light gray background */
             padding: 6rem 0;
             border-top: 1px solid var(--border);
         }
 
         .founders-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 3rem;
             margin-top: 3rem;
             max-width: 900px;
@@ -125,6 +124,9 @@
             box-shadow: var(--shadow-small);
             border: 1px solid var(--border);
             transition: transform 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .founder-card:hover {
@@ -132,36 +134,89 @@
             box-shadow: var(--shadow-md);
         }
 
-        .vmv-card,
-        .founder-card {
-            /* Handled by luxury-card utility mostly, but ensure overrides are minimal */
-            text-align: left;
-            padding: 2.5rem;
-        }
-
         .founder-img-wrapper {
-            /* ... existing wrapper code is fine, but color might need tweak if it used light variables .. */
-            width: 160px;
-            height: 160px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             background-color: var(--muted);
-            margin: 0 auto 1.5rem;
+            margin-bottom: 1.5rem;
             overflow: hidden;
             border: 4px solid rgba(255, 255, 255, 0.1);
-            /* Subtle border */
             box-shadow: 0 0 0 1px var(--border);
+            flex-shrink: 0;
+        }
+
+        .founder-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .founder-card h3 {
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.5rem;
             color: var(--foreground);
+            font-size: 1.5rem;
         }
 
-        .founder-card p {
+        .founder-card .role {
             color: var(--primary);
-            /* Blue text */
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+
+        .founder-bio {
+            color: var(--muted-foreground);
             font-size: 0.95rem;
+            line-height: 1.7;
+            text-align: center;
+            width: 100%;
+        }
+
+        .bio-short {
+            margin-bottom: 1rem;
+        }
+
+        .bio-full {
+            display: none;
+            /* Hidden by default */
+            margin-top: 1rem;
+        }
+
+        .bio-full.visible {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .read-more-btn {
+            background: transparent;
+            border: none;
+            color: var(--primary);
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .read-more-btn:hover {
+            border-bottom-color: var(--primary);
         }
     </style>
 </head>
@@ -229,31 +284,92 @@
     <!-- Founders Section -->
     <section class="founders-section">
         <div class="container">
-            <h2 class="text-center">Our Leadership</h2>
+            <h2 class="text-center" style="margin-bottom: 4rem;">Our Leadership</h2>
             <div class="founders-grid">
-                <div class="founder-card luxury-card" style="text-align: center;">
-                    <!-- Placeholder Image for Norna -->
+
+                <!-- Norna Augustave -->
+                <div class="founder-card luxury-card">
                     <div class="founder-img-wrapper">
-                        <img src="norna.jpg" alt="Norna Augustave" style="width:100%; height:100%; object-fit:cover;"
-                            onerror="this.style.display='none'; this.previousElementSibling.style.display='block';">
-                        <span style="display:none; color: #666; font-size: 0.8rem;">Photo</span>
+                        <img src="norna.jpg" alt="Norna Augustave"
+                            onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#e5e7eb';">
                     </div>
                     <h3>Norna Augustave</h3>
-                    <p>Managing Director</p>
+                    <div class="role">Managing Director</div>
+                    <div class="founder-bio" style="text-align: center;">
+                        <div class="bio-short">
+                            Norna is the Managing Director of House of Paradise Enterprises, where she leads the
+                            organization with a hands-on, service-driven approach to government contracting. She is
+                            directly involved in strategic planning, contract oversight, and client engagement, ensuring
+                            every project aligns with agency objectives and regulatory requirements.
+                        </div>
+                        <div class="bio-full" id="norna-bio-full">
+                            <p style="margin-bottom: 1rem;">With a strong understanding of public-sector standards,
+                                Norna prioritizes compliance, thorough documentation, risk management, and
+                                accountability across all contracts. She ensures that each engagement is carefully
+                                planned, properly resourced, and executed with precision. Her leadership emphasizes
+                                operational efficiency, fiscal responsibility, and full transparency, recognizing the
+                                importance of safeguarding taxpayer resources.</p>
+                            <p>Norna is committed to building strong, collaborative relationships with government
+                                agencies and partners. She believes successful contracting is rooted in trust,
+                                consistency, and performance, not just task completion. Under her direction, House of
+                                Paradise Enterprises delivers reliable services while maintaining the highest ethical
+                                and professional standards.</p>
+                        </div>
+                        <div class="text-center">
+                            <button class="read-more-btn" onclick="toggleBio('norna-bio-full', this)">Read More</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="founder-card luxury-card" style="text-align: center;">
-                    <!-- Placeholder Image for Gifty -->
+
+                <!-- Gifty Myers -->
+                <div class="founder-card luxury-card">
                     <div class="founder-img-wrapper">
-                        <img src="gifty.jpg" alt="Gifty Myers" style="width:100%; height:100%; object-fit:cover;"
-                            onerror="this.style.display='none'; this.previousElementSibling.style.display='block';">
-                        <span style="display:none; color: #666; font-size: 0.8rem;">Photo</span>
+                        <img src="gifty.jpg" alt="Gifty Myers"
+                            onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#e5e7eb';">
                     </div>
                     <h3>Gifty Myers</h3>
-                    <p>Co Managing Director</p>
+                    <div class="role">Co-Managing Director</div>
+                    <div class="founder-bio" style="text-align: center;">
+                        <div class="bio-short">
+                            Gifty Myers is the Co-Managing Director of House of Paradise Enterprises (H.O.P.E.),
+                            bringing a strong commitment to service, strategic thinking, and results-driven leadership.
+                            She is an accomplished entrepreneur and consultant known for helping organizations and
+                            individuals navigate complexity, identify opportunities, and achieve sustainable growth.
+                        </div>
+                        <div class="bio-full" id="gifty-bio-full">
+                            <p style="margin-bottom: 1rem;">With a client-centered approach, Gifty delivers tailored
+                                consulting solutions that strengthen businesses and support professional and personal
+                                development. Her work is grounded in thoughtful strategy, practical insight, and trusted
+                                guidance, ensuring that each engagement creates measurable value.</p>
+                            <p>Gifty believes that lasting success is built on integrity, meaningful relationships, and
+                                a clear sense of purpose. Service is central to her leadership philosophy, and her
+                                passion for empowering others continues to shape the vision, culture, and impact of the
+                                company.</p>
+                        </div>
+                        <div class="text-center">
+                            <button class="read-more-btn" onclick="toggleBio('gifty-bio-full', this)">Read More</button>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
+
+    <script>
+        function toggleBio(id, btn) {
+            const content = document.getElementById(id);
+            const isVisible = content.classList.contains('visible');
+
+            if (isVisible) {
+                content.classList.remove('visible');
+                btn.textContent = 'Read More';
+            } else {
+                content.classList.add('visible');
+                btn.textContent = 'Show Less';
+            }
+        }
+    </script>
 
     <!-- Footer -->
     <footer>
@@ -275,8 +391,8 @@
                 <div class="footer-col">
                     <h3>Contact</h3>
                     <p>Phone: +1 (404) 397-9000 / +1 (404) 437-8826</p>
-                    <p>Email: <a href="mailto:houseofparadise.mail@gmail.com"
-                            style="text-decoration: underline;">houseofparadise.mail@gmail.com</a></p>
+                    <p>Email: <a href="mailto:info@hopesconnect.com"
+                            style="text-decoration: underline;">info@hopesconnect.com</a></p>
                     <p>Address: 40 Peachtree Valley Road NE, Atlanta, GA 30309</p>
                 </div>
             </div>

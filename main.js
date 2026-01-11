@@ -60,7 +60,7 @@ Message:
 ${message}`;
 
                 // Create Mailto Link
-                const mailtoLink = `mailto:houseofparadise.mail@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                const mailtoLink = `mailto:info@hopesconnect.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
                 // Open Email Client
                 window.location.href = mailtoLink;
